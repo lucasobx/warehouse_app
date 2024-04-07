@@ -42,5 +42,8 @@ describe 'Usuário cadastra um galpão' do
     click_on 'Enviar'
 
     expect(page).to have_content 'Galpão não cadastrado.'
+    expect(page).to have_content 'Nome não pode ficar em branco'
+    expect(page).to have_content 'Descrição não pode ficar em branco'
+    expect(page).to have_content 'Código não pode ficar em branco'
   end
 end
