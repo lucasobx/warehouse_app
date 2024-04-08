@@ -56,8 +56,8 @@ RSpec.describe Warehouse, type: :model do
 
     it 'falso quando code está em uso' do
       #precisa usar .create no primeiro pois é necessário armazená-lo no db para fazer a comparação
-      first_warehouse = Warehouse.create(name: 'Rio', code: 'RIO', address: 'Endereço', cep: '25000-000',
-                                      city: 'Rio', area: 1000, description: 'Alguma descrição')
+      first_warehouse = Warehouse.create!(name: 'Rio', code: 'RIO', address: 'Endereço', cep: '25000-000',
+                                          city: 'Rio', area: 1000, description: 'Alguma descrição')
 
       second_warehouse = Warehouse.new(name: 'Niteroi', code: 'RIO', address: 'Avenida', cep: '35000-000',
                                        city: 'Niteroi', area: 1500, description: 'Outra descrição')
