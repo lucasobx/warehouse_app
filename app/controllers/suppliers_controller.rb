@@ -5,9 +5,7 @@ class SuppliersController < ApplicationController
     @suppliers = Supplier.all
   end
 
-  def show
-    set_supplier
-  end
+  def show; end
 
   def new
     @supplier = Supplier.new
