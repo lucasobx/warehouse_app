@@ -2,9 +2,12 @@ require 'rails_helper'
 
 describe 'Usuário cadastra um modelo de produto' do
   it 'com sucesso' do
-    supplier = Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung',
-                                registration_number: '4789855698', full_address: 'Av Nacoes Unidas, 1000',
-                                city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
+    Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung',
+                     registration_number: '4789855698', full_address: 'Av Nacoes Unidas, 1000',
+                     city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
+    Supplier.create!(corporate_name: 'LG LTDA', brand_name: 'LG',
+                     registration_number: '1239123100', full_address: 'Av Ibirapuera, 300',
+                     city: 'São Paulo', state: 'SP', email: 'contato@lg.com.br')
 
     visit root_path
     click_on 'Modelos de Produtos'
@@ -24,5 +27,20 @@ describe 'Usuário cadastra um modelo de produto' do
     expect(page).to have_content 'SKU: TV40-SAMS-XPTO'
     expect(page).to have_content 'Dimensão: 60cm x 90cm x 10cm'
     expect(page).to have_content 'Peso: 10000g'
+  end
+
+  it 'deve preencher todos os campos' do
+    Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung',
+                                registration_number: '4789855698', full_address: 'Av Nacoes Unidas, 1000',
+                                city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
+
+    visit root_path
+    click_on 'Modelos de Produtos'
+    click_on 'Cadastrar Novo'
+    fill_in 'Nome', with: ''
+    fill_in 'Peso', with: ''
+    click_on 'Enviar'
+
+    expect(page).to have_content 'Não foi possível cadastrar o modelo de produto.'
   end
 end
