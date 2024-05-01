@@ -23,4 +23,9 @@ class OrdersController < ApplicationController
       render 'new', status: 422
     end
   end
+
+  def search
+    @code = params["query"]
+    @orders = Order.where("code LIKE ?", "%#{@code}%")
+  end
 end
