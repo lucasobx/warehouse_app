@@ -11,7 +11,7 @@ describe 'Usuário edita pedido' do
 
     visit edit_order_path(order.id)
 
-    expect(current_path). to eq new_user_session_path
+    expect(current_path).to eq new_user_session_path
   end
 
   it 'com sucesso' do
