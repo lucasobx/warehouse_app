@@ -14,8 +14,15 @@
 </div>
 
 <div>
-<%= link_to 'Editar', edit_warehouse_path %>
-<%= button_to 'Remover', warehouse_path, method: :delete %>
+  <%= link_to 'Editar', edit_warehouse_path %>
+  <%= button_to 'Remover', warehouse_path, method: :delete %>
+</div>
+
+<div>
+  <h2>Itens em Estoque</h2>
+  <% @stocks.each_pair do |pm, quantity| %>
+    <%= quantity %> x <%= pm.sku %>
+  <% end %>
 </div>
 
 <div>
