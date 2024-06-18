@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-describe 'Usuário visita tela inicial' do
-  it 'e vê o nome do app' do
+describe 'User visits homepage' do
+  it 'and sees the app name' do
     visit root_path
 
     expect(page).to have_content 'Galpões & Estoque'
     expect(page).to have_link 'Galpões & Estoque', href: root_path
   end
 
-  it 'e vê os galpões cadastrados' do
+  it 'and sees the registered warehouses' do
     Warehouse.create!(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000,
                       address: 'Av do Porto, 1000', cep: '20000-000', description: 'Galpão do Rio')
     Warehouse.create!(name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50_000,
@@ -28,7 +28,7 @@ describe 'Usuário visita tela inicial' do
     expect(page).to have_content '50000 m2'
   end
 
-  it 'e não existem galpões cadastrados' do
+  it 'and there are no registered warehouses' do
     visit root_path
     
     expect(page).to have_content 'Não existem galpões cadastrados.'

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário adiciona itens ao pedido' do
-  it 'com sucesso' do
+describe 'User adds items to the order"' do
+  it 'successfully' do
     user = User.create!(name: 'Joao Almeida', email: 'user@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                   address: 'Av do Aeroporto, 1000', cep: '15000-000', description: 'Perto do Aeroporto')
@@ -29,7 +29,7 @@ describe 'Usuário adiciona itens ao pedido' do
     expect(page).to have_content '8 x Produto A'
   end
 
-  it 'e não vê produtos de outro fornecedor' do
+  it 'and does not see products from another supplier' do
     user = User.create!(name: 'Joao Almeida', email: 'user@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                   address: 'Av do Aeroporto, 1000', cep: '15000-000', description: 'Perto do Aeroporto')

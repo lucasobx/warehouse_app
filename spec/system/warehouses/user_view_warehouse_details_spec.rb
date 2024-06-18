@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário vê detalhes de um galpão' do
-  it 'e vê informação adicionais' do
+describe 'User views warehouse details' do
+  it 'and sees additional information' do
     Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                       address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
                       description: 'Galpão destinado para cargas internacionais')
@@ -17,7 +17,7 @@ describe 'Usuário vê detalhes de um galpão' do
     expect(page).to have_content 'Galpão destinado para cargas internacionais'
   end
 
-  it 'e volta para a tela inicial' do
+  it 'and returns to the homepage' do
     Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                       address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
                       description: 'Galpão destinado para cargas internacionais')

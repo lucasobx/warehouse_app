@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProductModel, type: :model do
   describe '#valid?' do
-    it 'nome é obrigatório' do
+    it 'name is mandatory' do
       supplier = Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung',
                                   registration_number: '4789855698', full_address: 'Av Nacoes Unidas, 1000',
                                   city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
@@ -12,7 +12,7 @@ RSpec.describe ProductModel, type: :model do
       expect(pm.valid?).to eq false
     end
 
-    it 'sku é obrigatório' do
+    it 'sku is mandatory' do
       supplier = Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung',
                                   registration_number: '4789855698', full_address: 'Av Nacoes Unidas, 1000',
                                   city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')

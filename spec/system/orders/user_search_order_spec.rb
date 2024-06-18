@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário busca por um pedido' do
-  it 'a partir do menu' do
+describe 'User searches for an order' do
+  it 'from the menu' do
     user = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
 
     login_as(user)
@@ -13,9 +13,8 @@ describe 'Usuário busca por um pedido' do
     end
   end
 
-  it 'e deve estar autenticado' do
+  it 'and must be authenticated' do
     visit root_path
-
     
     within 'header nav' do
       expect(page).not_to have_field 'Buscar Pedido'
@@ -23,7 +22,7 @@ describe 'Usuário busca por um pedido' do
     end
   end
 
-  it 'e encontra um pedido' do
+  it 'and finds one order' do
     user = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Galpão Maceio', code: 'MCZ', city: 'Maceio', area: 50_000,
                       address: 'Av Atlantica, 50', cep: '80000-000', description: 'Perto do Aeroporto')
@@ -43,7 +42,7 @@ describe 'Usuário busca por um pedido' do
     expect(page).to have_content 'Fornecedor: Spark Industries LTDA'
   end
 
-  it 'e encontra múltiplos pedidos' do
+  it 'and finds multiple orders' do
     user = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     f_warehouse = Warehouse.create!(name: 'Galpão Maceio', code: 'MCZ', city: 'Maceio', area: 50_000,
                                     address: 'Av Atlantica, 50', cep: '80000-000', description: 'Perto do Aeroporto')

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário vê o estoque' do
-  it 'na tela do galpão' do
+describe 'User views the stock' do
+  it 'on the warehouse screen' do
     user = User.create!(name: 'André', email: 'andre@email.com', password: '12345678')
     w = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                           address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
@@ -32,7 +32,7 @@ describe 'Usuário vê o estoque' do
     end
   end
 
-  it 'e dá baixa em um item' do
+  it 'and removes an item' do
     user = User.create!(name: 'André', email: 'andre@email.com', password: '12345678')
     w = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                           address: 'Avenida do Aeroporto, 1000', cep: '15000-000',

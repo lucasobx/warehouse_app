@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário edita um pedido' do
-  it 'e não é o dono' do
+describe 'User edits an order' do
+  it 'and is not the owner' do
     andre = User.create!(name: 'Andre', email: 'andre@email.com', password: '12345678')
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,

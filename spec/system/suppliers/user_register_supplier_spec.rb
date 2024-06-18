@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário cadastra um fornecedor' do
-  it 'a partir do menu' do
+describe 'User registers a supplier' do
+  it 'from the menu' do
     visit root_path
     click_on 'Fornecedores'
     click_on 'Cadastrar Fornecedor'
@@ -15,7 +15,7 @@ describe 'Usuário cadastra um fornecedor' do
     expect(page).to have_field 'E-mail'
   end
 
-  it 'com sucesso' do
+  it 'successfully' do
     visit root_path
     click_on 'Fornecedores'
     click_on 'Cadastrar Fornecedor'
@@ -35,7 +35,7 @@ describe 'Usuário cadastra um fornecedor' do
     expect(page).to have_content 'E-mail: contato@acme.com'
   end
 
-  it 'com dados incompletos' do
+  it 'with incomplete data' do
     visit root_path
     click_on 'Fornecedores'
     click_on 'Cadastrar Fornecedor'

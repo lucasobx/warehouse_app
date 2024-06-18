@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário se autentica' do
-  it 'com sucesso' do
+describe 'User authenticates' do
+  it 'successfully' do
     User.create!(name: 'Joao Silva', email: 'joao@email.com', password: 'password')
 
     visit root_path
@@ -20,7 +20,7 @@ describe 'Usuário se autentica' do
     end
   end
 
-  it 'e faz logout' do
+  it 'and logs out' do
     User.create!(email: 'joao@email.com', password: 'password')
 
     visit root_path

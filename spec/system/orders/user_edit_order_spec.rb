@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário edita pedido' do
-  it 'e deve estar autenticado' do
+describe 'User edits an order' do
+  it 'and must be authenticated' do
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                   address: 'Av do Aeroporto, 1000', cep: '15000-000', description: 'Perto do Aeroporto')
@@ -14,7 +14,7 @@ describe 'Usuário edita pedido' do
     expect(current_path).to eq new_user_session_path
   end
 
-  it 'com sucesso' do
+  it 'successfully' do
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                   address: 'Av do Aeroporto, 1000', cep: '15000-000', description: 'Perto do Aeroporto')
@@ -38,7 +38,7 @@ describe 'Usuário edita pedido' do
     expect(page).to have_content 'Data Prevista de Entrega: 12/12/2043'
   end
 
-  it 'caso seja o responsável' do
+  it 'if responsible for the order' do
     andre = User.create!(name: 'Andre', email: 'andre@email.com', password: '12345678')
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,

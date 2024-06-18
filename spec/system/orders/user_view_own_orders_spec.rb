@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-describe 'Usuário vê seus próprios pedidos' do
-  it 'e deve estar autenticado' do
+describe 'User views their own orders' do
+  it 'and must be authenticated' do
     visit root_path
     click_on 'Meus Pedidos'
 
     expect(current_path).to eq new_user_session_path
   end
 
-  it 'e não vê outros pedidos' do
+  it 'and does not see other orders' do
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     carla = User.create!(name: 'Carla', email: 'carla@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
@@ -35,7 +35,7 @@ describe 'Usuário vê seus próprios pedidos' do
     expect(page).to have_content 'Cancelado'
   end
 
-  it 'e visita um pedido' do
+  it 'and visits an order' do
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                   address: 'Av do Aeroporto, 1000', cep: '15000-000', description: 'Perto do Aeroporto')
@@ -56,7 +56,7 @@ describe 'Usuário vê seus próprios pedidos' do
     expect(page).to have_content "Data Prevista de Entrega: #{formatted_date}"
   end
 
-  it 'e não visita pedidos de outros usuários' do
+  it 'and does not visit orders from other users' do
     andre = User.create!(name: 'Andre', email: 'andre@email.com', password: '12345678')
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
@@ -73,7 +73,7 @@ describe 'Usuário vê seus próprios pedidos' do
     expect(page).to have_content 'Você não possui acesso a este pedido.'
   end
 
-  it 'e vê itens do pedido' do
+  it 'and sees the items in the order' do
     supplier = Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '43447216000102',
                                 email: 'contato@acme.com', full_address: 'Av das Palmas, 100', city: 'Bauru', state: 'SP')
     product_a = ProductModel.create!(name: 'Produto A', weight: 15, width: 10, height: 20, depth: 30,

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário cadastra um galpão' do
-  it 'a partir da tela inicial' do
+describe 'User registers a warehouse' do
+  it 'from the homepage' do
     visit root_path
     click_on 'Cadastrar Galpão'
 
@@ -14,7 +14,7 @@ describe 'Usuário cadastra um galpão' do
     expect(page).to have_field 'Área'
   end
 
-  it 'com sucesso' do
+  it 'successfully' do
     visit root_path
     click_on 'Cadastrar Galpão'
     fill_in 'Nome', with: 'Rio de Janeiro'
@@ -33,7 +33,7 @@ describe 'Usuário cadastra um galpão' do
     expect(page).to have_content '32000 m2'
   end
 
-  it 'com dados incompletos' do
+  it 'with incomplete data' do
     visit root_path
     click_on 'Cadastrar Galpão'
     fill_in 'Nome', with: ''

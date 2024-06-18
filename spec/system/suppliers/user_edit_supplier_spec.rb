@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário edita um fornecedor' do
-  it 'a partir da página de detalhes' do
+describe 'User edits a supplier' do
+  it 'from the details page' do
     Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '1234748596',
                      full_address: 'Av das Palmas, 100', city: 'Bauru', state: 'SP', email: 'contato@acme.com')
 
@@ -20,7 +20,7 @@ describe 'Usuário edita um fornecedor' do
     expect(page).to have_field('E-mail', with: 'contato@acme.com')
   end
 
-  it 'com sucesso' do
+  it 'successfully' do
     Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '1234748596',
                      full_address: 'Av das Palmas, 100', city: 'Bauru', state: 'SP', email: 'contato@acme.com')
 
@@ -39,7 +39,7 @@ describe 'Usuário edita um fornecedor' do
     expect(page).to have_content 'E-mail: contato@spark.com'
   end
 
-  it 'e mantém os dados obrigatóriso' do
+  it 'and keeps the required data' do
     Supplier.create!(corporate_name: 'ACME LTDA', brand_name: 'ACME', registration_number: '1234748596',
                      full_address: 'Av das Palmas, 100', city: 'Bauru', state: 'SP', email: 'contato@acme.com')
 

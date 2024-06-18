@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe StockProduct, type: :model do
-  describe 'gera um número de série' do
-    it 'ao criar um StockProduct' do
+  describe 'generates a serial number' do
+    it 'when creating a StockProduct' do
       user = User.create!(name: 'Sergio', email: 'sergio@email.com', password: '12345678')
       warehouse = Warehouse.create!(name: 'Santos Dumont', code: 'RIO', address: 'Endereço', cep: '25000-000',
                                     city: 'Rio', area: 1000, description: 'Alguma descrição')
@@ -19,7 +19,7 @@ RSpec.describe StockProduct, type: :model do
       expect(stock_product.serial_number.length).to eq 20
     end
 
-    it 'e não é modificado' do
+    it 'and is not modified' do
       user = User.create!(name: 'Sergio', email: 'sergio@email.com', password: '12345678')
       warehouse = Warehouse.create!(name: 'Santos Dumont', code: 'RIO', address: 'Endereço', cep: '25000-000',
                                     city: 'Rio', area: 1000, description: 'Alguma descrição')
@@ -41,7 +41,7 @@ RSpec.describe StockProduct, type: :model do
   end
 
   describe '#available?' do
-    it 'true se não tiver destino' do
+    it 'true if there is no destination' do
       user = User.create!(name: 'Sergio', email: 'sergio@email.com', password: '12345678')
       warehouse = Warehouse.create!(name: 'Santos Dumont', code: 'RIO', address: 'Endereço', cep: '25000-000',
                                     city: 'Rio', area: 1000, description: 'Alguma descrição')
@@ -57,7 +57,7 @@ RSpec.describe StockProduct, type: :model do
       expect(stock_product.available?).to eq true     
     end
 
-    it 'false se tiver destino' do
+    it 'false if there is a destination' do
       user = User.create!(name: 'Sergio', email: 'sergio@email.com', password: '12345678')
       warehouse = Warehouse.create!(name: 'Santos Dumont', code: 'RIO', address: 'Endereço', cep: '25000-000',
                                     city: 'Rio', area: 1000, description: 'Alguma descrição')

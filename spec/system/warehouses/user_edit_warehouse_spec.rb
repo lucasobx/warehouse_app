@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário edita um galpão' do
-  it 'a partir da página de detalhes' do
+describe 'User edits a warehouse' do
+  it 'from the details page' do
     Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                       address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
                       description: 'Galpão destinado para cargas internacionais')
@@ -20,7 +20,7 @@ describe 'Usuário edita um galpão' do
     expect(page).to have_field('Área', with: '100000')
   end
 
-  it 'com sucesso' do
+  it 'successfully' do
     Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                       address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
                       description: 'Galpão destinado para cargas internacionais')
@@ -41,7 +41,7 @@ describe 'Usuário edita um galpão' do
     expect(page).to have_content 'CEP: 16000-000'
   end
 
-  it 'e mantém os dados obrigatórios' do
+  it 'and keeps the required data' do
     Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                       address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
                       description: 'Galpão destinado para cargas internacionais')

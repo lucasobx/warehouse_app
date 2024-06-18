@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Order, type: :model do
   describe '#valid?' do
-    it 'deve ter um código' do
+    it 'must have a code' do
       user = User.create!(name: 'Sergio', email: 'sergio@email.com', password: '12345678')
       warehouse = Warehouse.create!(name: 'Santos Dumont', code: 'RIO', address: 'Endereço', cep: '25000-000',
                                     city: 'Rio', area: 1000, description: 'Alguma descrição')
@@ -14,14 +14,14 @@ RSpec.describe Order, type: :model do
       expect(order.valid?).to be true
     end
 
-    it 'data estimada de entrega deve ser obrigatória' do
+    it 'estimated delivery date must be mandatory' do
       order = Order.new(estimated_delivery_date: '')
 
       order.valid?
       expect(order.errors.include? :estimated_delivery_date).to be true
     end
 
-    it 'data estimada de entrega não deve ser passada' do
+    it 'estimated delivery date should not be passed' do
       order = Order.new(estimated_delivery_date: 1.day.ago)
 
       order.valid?
@@ -30,7 +30,7 @@ RSpec.describe Order, type: :model do
       expect(order.errors[:estimated_delivery_date]).to include "deve ser futura."
     end
 
-    it 'data estimada de entrega não deve ser igual a hoje' do
+    it 'estimated delivery date should not be today' do
       order = Order.new(estimated_delivery_date: Date.today)
 
       order.valid?
@@ -39,7 +39,7 @@ RSpec.describe Order, type: :model do
       expect(order.errors[:estimated_delivery_date]).to include "deve ser futura."
     end
 
-    it 'data estimada de entrega deve ser igual ou maior que amanhã' do
+    it 'estimated delivery date must be equal to or greater than tomorrow' do
       order = Order.new(estimated_delivery_date: 1.day.from_now)
 
       order.valid?
@@ -48,8 +48,8 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe 'gera um código aleatório' do
-    it 'ao criar um novo pedido' do
+  describe 'generates a random code' do
+    it 'when creating a new order' do
       user = User.create!(name: 'Sergio', email: 'sergio@email.com', password: '12345678')
       warehouse = Warehouse.create!(name: 'Santos Dumont', code: 'RIO', address: 'Endereço', cep: '25000-000',
                                     city: 'Rio', area: 1000, description: 'Alguma descrição')
@@ -65,7 +65,7 @@ RSpec.describe Order, type: :model do
       expect(result.length).to eq 8
     end
 
-    it 'e o código é único' do
+    it 'and the code is unique' do
       user = User.create!(name: 'Sergio', email: 'sergio@email.com', password: '12345678')
       warehouse = Warehouse.create!(name: 'Santos Dumont', code: 'RIO', address: 'Endereço', cep: '25000-000',
                                     city: 'Rio', area: 1000, description: 'Alguma descrição')
@@ -81,7 +81,7 @@ RSpec.describe Order, type: :model do
       expect(second_order.code).not_to eq first_order.code
     end
 
-    it 'e não deve ser modificado' do
+    it 'and should not be modified' do
       user = User.create!(name: 'Sergio', email: 'sergio@email.com', password: '12345678')
       warehouse = Warehouse.create!(name: 'Santos Dumont', code: 'RIO', address: 'Endereço', cep: '25000-000',
                                     city: 'Rio', area: 1000, description: 'Alguma descrição')

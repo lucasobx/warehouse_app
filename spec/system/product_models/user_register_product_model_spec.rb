@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário cadastra um modelo de produto' do
-  it 'com sucesso' do
+describe 'User registers a product model' do
+  it 'successfully' do
     user = User.create!(name: 'Joao', email: 'joao@email.com', password: 'password')
     Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung',
                      registration_number: '4789855698', full_address: 'Av Nacoes Unidas, 1000',
@@ -31,7 +31,7 @@ describe 'Usuário cadastra um modelo de produto' do
     expect(page).to have_content 'Peso: 10000g'
   end
 
-  it 'e deve preencher todos os campos' do
+  it 'and must fill in all fields' do
     user = User.create!(name: 'Joao', email: 'joao@email.com', password: 'password')
     Supplier.create!(corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung',
                                 registration_number: '4789855698', full_address: 'Av Nacoes Unidas, 1000',

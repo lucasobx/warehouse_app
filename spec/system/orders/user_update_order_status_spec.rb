@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário informa novo status de pedido' do
-  it 'e pedido foi entregue' do
+describe 'User updates the order status' do
+  it 'and the order has been delivered' do
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                   address: 'Av do Aeroporto, 1000', cep: '15000-000', description: 'Perto do Aeroporto')
@@ -33,7 +33,7 @@ describe 'Usuário informa novo status de pedido' do
     expect(estoque).to eq 5
   end
 
-  it 'e pedido foi cancelado' do
+  it 'and the order was canceled' do
     joao = User.create!(name: 'Joao', email: 'joao@email.com', password: '12345678')
     warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                                   address: 'Av do Aeroporto, 1000', cep: '15000-000', description: 'Perto do Aeroporto')

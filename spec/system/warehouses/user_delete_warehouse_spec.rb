@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário remove um galpão' do
-  it 'com sucesso' do
+describe 'User removes a warehouse' do
+  it 'successfully' do
     Warehouse.create!(name: 'Cuiaba', code: 'CWB', area: 10000, cep: '56000-000', city: 'Cuiabá',
                       address: 'Av dos Jacarés, 1000', description: 'Galpão no centro do país')
 
@@ -15,7 +15,7 @@ describe 'Usuário remove um galpão' do
     expect(page).not_to have_content 'CWB'
   end
 
-  it 'e não apaga outros galpões' do
+  it 'and does not delete other warehouses' do
     first_warehouse = Warehouse.create!(name: 'Cuiaba', code: 'CWB', area: 10000, cep: '56000-000', city: 'Cuiabá',
                                         address: 'Av dos Jacarés, 1000', description: 'Galpão no centro do país')
     second_warehouse = Warehouse.create!(name: 'Belo Horizonte', code: 'BHZ', area: 20000, cep: '46000-000', city: 'Belo Horizonte',

@@ -48,7 +48,7 @@ describe 'Warehouse API' do
     it 'return empty if there is no warehouse' do
       get '/api/v1/warehouses'
 
-      expect(response.status).to  eq 200
+      expect(response.status).to eq 200
       expect(response.content_type).to include 'application/json'
       json_response = JSON.parse(response.body)
       expect(json_response).to eq []
