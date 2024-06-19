@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Warehouse API' do
-  context 'GET /api/v1/buffets/id' do
+  context 'GET /api/v1/warehouses/id' do
     it 'success' do
       warehouse = Warehouse.create!(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
                         address: 'Avenida do Aeroporto, 1000', cep: '15000-000',
